@@ -1,4 +1,6 @@
 ##check balanced parentheses
+from pythonds.basic import Stack
+
 def parChecker(strings):
     s=Stack()
 		balanced=True
