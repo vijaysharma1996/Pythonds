@@ -1,0 +1,71 @@
+##infix to postfix conversion
+from pythonds.basic import Stack
+
+def infixToPostfix(infixexpr):
+    ##first, convert infix to postfix
+    ###consider ranking the operators, create dictionary
+    perc={}
+    perc["^"]=4
+    perc["*"]=3
+    perc["/"]=3
+    perc["+"]=2
+    perc["-"]=2
+    perc["("]=1
+    opStack=Stack()
+    postfixlist=[]
+    tokenlist=infixexpr.split()
+    
+    ###write in order in postfixlist
+    for token in tokenlist:
+        if token in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" or token in "0123456789":
+            postfixlist.append(token)
+        elif token="(":
+            opStack.push(token)
+        elif token=")":
+            toptoken=opstack.pop()
+            while toptoken !="(":
+                postfixlist.append(toptoken)
+                topToken=opstack.pop()
+        else:
+            while not opStack.isEmpty() and perc[opStack.peek()]>=perc[token]:
+                 postfixlist.append(opstack.pop())
+            opStack.push(token)
+     while not opStack.isEmpty():
+         postfixlist.append(opStack.pop())
+     postfixExpr= "".join(postfixList)
+     ##postfix evaluation
+     OperandStack=Stack()
+     tokenlist=postfixExpr.split()
+    
+    ###sperate token into numbers and operators
+     for token in tokenlist:
+         if token in "0123456789":
+            OperandStack.push(token)
+         else:
+            operand2=OperandStack.pop()
+            operand1=OperandStack.pop()
+            result=domath(token,operand1,operand2)
+            operandStack.push(result)
+            
+      ####return the result
+      return oprandStack.pop()
+ 
+def domatch(op,op1,op2):
+    if op =="+":
+       return op1+op2
+    if op=="-":
+       return op1-op2
+    if op=="*":
+       return op1*op2
+    if op=="/":
+       return op1/op2
+    else:
+       return op1^op2
+    
+     
+            
+            
+            
+            
+            
+    
