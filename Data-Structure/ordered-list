@@ -1,0 +1,27 @@
+class OrderedList:
+    def __init__(self):
+        self.head=None
+    
+    def search(self,data):
+        current=self.data
+        found=False
+        stop=False
+        while current != None and not found and not stop:
+            if current.getData() == data:
+               found=True
+            elif:
+               if current.getData() > data:
+                  stop=True
+               else:
+                  current =current.getNext()
+         
+         return found
+         
+     def add(self,data):
+         current=self.data
+         previous=None
+         stop=False
+        
+         while current != None and not stop:
+             if current
+            
