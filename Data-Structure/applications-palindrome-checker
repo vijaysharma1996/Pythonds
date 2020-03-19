@@ -1,0 +1,18 @@
+##check whether a word is palindrome, like radar, toot, madam
+from pythonds.basic import Deque
+def palchecker(aString):
+    chardeque=Deque()
+    stillEqual=True
+    
+    for ch in aString:
+        chardeque.addRear(ch)
+    
+    while chardeque.size()>1:
+         first=chardeque.removeFront()
+         last=chardeque.removeRear()
+         if first!=last:
+            stillEqual=False
+    
+    return stillEqual
+            
+        
