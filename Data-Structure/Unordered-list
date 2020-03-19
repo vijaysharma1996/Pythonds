@@ -1,0 +1,97 @@
+###list:
+##Node
+##create a node class:
+class Node:
+###initially, one node, no connections to other data
+    def __init__(self,initdata):
+        self.data=initdata
+        self.next=None
+      
+    def getData(self):
+        return self.data
+        
+    def getNext(self):
+        return self.next
+        
+    def setData(self,newdata)
+        self.data=newdata
+    
+    def setNext(self,nextdata):
+        self.next=nextdata
+
+##create an unordered list:
+class UnorderedList:
+   def __init__(self):
+       self.head==None
+   def isEmpty():
+       return self.head==None
+   def add(self, data):
+       temp=Node(data)
+       temp.setNext(self.head)
+       self.head=temp
+       
+ ###linked list traversal
+    def size(self):
+        current=self.head
+        count=0
+        while current != None:
+            count =+ 1
+            current=current.getNext()
+        
+        return count
+     
+     def search(self,data):
+         current=self.head
+         found=False
+         while current!=None and not found:
+             if current.getData() != data:
+                 current=current.getNext()
+             else:
+                 found=True
+         return found
+         
+        ####remove: remove is search and remove
+        def remove(self,data):
+            current=self.head()
+            previous=None
+            found=False
+            while current != None and not found: 
+                if current.getData() != data:
+                    previous=current
+                    current=current.getNext()
+                else:
+                    if previous=None:
+                       self.head=current.getNext()
+                    else:
+                       previous.setNext(current.getNext())
+                       
+                       
+           ###append: append is check size and add node:
+           
+          def append(self, data):
+              current=self.head()
+              while current != None:
+                  current=current.getNext()
+              current.setNext(Node(data))
+              
+              
+       
+           
+                  
+                  
+                  
+            
+            
+            
+            
+             
+     
+     
+     
+     
+     
+     
+       
+       
+       
+       
