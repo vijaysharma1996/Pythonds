@@ -7,9 +7,9 @@ def insertLeft(root,newBranch):
     if len(left)>1:
     ###if already have left subtree, push it down
         root.insert(1,[newBranch,left,[]])
-     else:
+    else:
         root.insert(1,[newBranch,[],[]])
-     return root
+    return root
      
  def insertRight(root, newBranch):
      right=root.pop(2)
@@ -17,7 +17,7 @@ def insertLeft(root,newBranch):
          root.insert(2, [newBranch,[],right])
      else:
          root.insert(2,[newBranch,[],[]])
-      return root
+     return root
       
   def getRootVal(root):
       return root[0]
