@@ -1,0 +1,108 @@
+##map key and value of a TreeNode
+#the Tree structure is that leftChild<Root<rightChild
+##check to see if the tree is empty
+class BinarySerchTree:
+
+    def __init__(self):
+        self.root=None
+        self.size=0
+    def length(self):
+        return self.size
+        
+    def __len__(self):
+        return self.size
+    
+    def __iter__(self):
+        return self.root.__iter__()
+        
+    ##put a new node, depending on whether the tree already has a root
+    ##if no root, then add this to be the root of the tree by adding a treenode
+    ##if there is root, use _put function, to swap the node into the right place
+    def put(self, key, val):
+        if self.root:
+            self._put(key, val, self.root)
+        else:
+            self.root = TreeNode(key, val)
+        self.size=self.size+1
+    ##compare key with currentNode key, if smaller, compare with the left child, if larger, compare with the right child
+    ##if current node does not have a left child or right child, create a tree node
+    def _put(self, key, val, currentNode):
+        if key<currentNode.key:
+           if currentNode.hasLeftChild():
+                 self._put(key, val, currentNode.leftChild)
+           else:
+              currentNode.leftChild=TreeNode(key,val,parent=currentNode)
+        else:
+           if currentNode.hasRightChild:
+                 self._put(key,val,currentNode.rightChild)
+           else:
+              currentNode.rightChild=TreeNode(key,val,parent=currentNode)
+              
+     def __setitem__(self, k, v):
+         self.put(k,v)
+               
+                 
+        
+       
+    
+        
+        
+###TreeNode
+class TreeNode
+   def __init__(self, key, val, left=None, right=None, parent=None):
+       self.key= key
+       self.payload =val
+       self.leftChild = left
+       self.rightChild = right
+       self.parent= parent
+   
+   def hasLeftChild(self):
+       return self.leftChild
+       
+   def hasRightChild(self):
+       return self.rightChild
+       
+   def isLeftChild(self):
+       return self.parent and self.leftChild == self
+       
+   def isRightChild(self):
+       return self.parent and self.rightChild== self
+       
+   def isRoot(self)
+       return not self.parent
+      
+   def isLeaf(self)
+       return not (self.leftChild or self.rightChild)
+   
+   def hasAnyChildren(self):
+       return self.rightChild or self.leftChild
+       
+   def hasBothChildren(self):
+       return self.leftChild and self.rightChild
+       
+   def replaceNodeData(self,key,value,lc,rc):
+       self.key=key
+       self.payload=value
+       self.leftChild=lc
+       self.rightChild=rc
+       if self.hasLeftChild():
+           self.leftChild.parent=self
+       if self.hasRightChild():
+           self.rightChild.parent=self
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
