@@ -1,29 +1,61 @@
-##sequential search:
-def sequentialSearch(alist,item):
-    pos=0
-    found=False
-    while pos<len(alist) and not found:
-        if alist[pos]==item:
-           found=True
-        else:
-            pos+=1
-            
-     return found
+# Python3 code to linearly search x in arr[].  
+# If x is present then return its location, 
+# otherwise return -1 
+  
+def search(arr, n, x): 
+  
+    for i in range (0, n): 
+        if (arr[i] == x): 
+            return i; 
+    return -1; 
+  
+# Driver Code 
+arr = [ 2, 3, 4, 10, 40 ]; 
+x = 10; 
+n = len(arr); 
+result = search(arr, n, x) 
+if(result == -1): 
+    print("Element is not present in array") 
+else: 
+    print("Element is present at index", result); 
 
 
-###binary search: save time to search for specific item
-def binarySearch(alist,item):
-    first=0
-    last=len(alist)-1
-    found=False
-    while first<last and not found:
-        midpoint=(first+last)//2
-        if midpoint==item:
-           found=True
-        else:
-            if midpoint>item:
-               last=midterm-1
-            else:
-                first=midterm+1
-      
-      return found
+# Python3 code to implement iterative Binary 
+# Search. 
+
+# It returns location of x in given array arr 
+# if present, else returns -1 
+def binarySearch(arr, l, r, x): 
+
+	while l <= r: 
+
+		mid = l + (r - l) // 2; 
+		
+		# Check if x is present at mid 
+		if arr[mid] == x: 
+			return mid 
+
+		# If x is greater, ignore left half 
+		elif arr[mid] < x: 
+			l = mid + 1
+
+		# If x is smaller, ignore right half 
+		else: 
+			r = mid - 1
+	
+	# If we reach here, then the element 
+	# was not present 
+	return -1
+
+# Driver Code 
+arr = [ 2, 3, 4, 10, 40 ] 
+x = 10
+
+# Function call 
+result = binarySearch(arr, 0, len(arr)-1, x) 
+
+if result != -1: 
+	print ("Element is present at index % d" % result) 
+else: 
+	print ("Element is not present in array") 
+
